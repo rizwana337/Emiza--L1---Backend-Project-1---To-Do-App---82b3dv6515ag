@@ -1,22 +1,34 @@
-var mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-/*
-Complete your other field here
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  role: { type: String, enum: ['user', 'admin'], default: 'user' },
+}, { timestamps: true });
 
-1. name should be a string and required
-2. password should be a string and required
-3. role should be a string and it can have only 2 values ('user', 'admin') and default should be user
-4. email should be a string and required.
-5. Also Enable timestamps which will store the date of document created and updated.
-*/
+module.exports = mongoose.model('User', userSchema);
 
-var userSchema = mongoose.Schema({
-  //Write your code here.
-},
 
-{ /* ... */ }
+// var mongoose = require("mongoose");
 
-);
+// /*
+// Complete your other field here
 
-module.exports = mongoose.model("User", userSchema);
+// 1. name should be a string and required
+// 2. password should be a string and required
+// 3. role should be a string and it can have only 2 values ('user', 'admin') and default should be user
+// 4. email should be a string and required.
+// 5. Also Enable timestamps which will store the date of document created and updated.
+// */
+
+// var userSchema = mongoose.Schema({
+//   //Write your code here.
+// },
+
+// { /* ... */ }
+
+// );
+
+// module.exports = mongoose.model("User", userSchema);
 
